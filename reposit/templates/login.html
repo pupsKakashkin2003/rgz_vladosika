@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block RGZ %}
+<label style="font-size: 36px; color: whitesmoke;"">
+    <b><a href="/main">Бубликотекарь</a> </b>
+</label>
+
+
+<style>
+    .error {
+        border: 1px solid;
+        color: white;
+        border-radius: 5px;
+        background-color: red;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+    <body>
+        <h1>Вход</h1>
+
+        <form action="/main/login" method="post">
+            <input type="text" name="username" placeholder="Имя пользователя">
+            <input type="password" name="password" placeholder="Пароль">
+            <input type="checkbox" name="remember">
+            <label for="remember">Запомнить меня</label>
+            <input type="submit" value="Войти">
+            <span class="error">{{ errors }}</span>
+        </form>
+    </body>
+
+{% endblock %}

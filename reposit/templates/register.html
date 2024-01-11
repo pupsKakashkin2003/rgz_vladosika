@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block RGZ %}
+<label style="font-size: 36px; color: whitesmoke;"">
+    <b><a href="/main">Бубликотекарь</a> </b>
+</label>
+
+
+<style>
+    .error {
+        border: 1px solid;
+        color: white;
+        border-radius: 5px;
+        background-color: red;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+    <body>
+        <form action="/main/register" method="post">
+            <h1>Страница регистрации</h1>
+            <div>
+                <p>
+                    <input type="text" name="username" value="{{ username or ''}}" style="border-radius: 20px; " placeholder="Логин">
+                </p>
+            </div>
+            <div style="margin-top: 15px">
+                <p>
+                    <input type="password" name="password" value="{{ password or ''}}" style="border-radius: 20px; " placeholder="Пароль">
+                </p>
+            </div>
+            <input type="checkbox" name="is_admin" value="1">
+            <label for="is_admin">Администратор</label>
+            <button type="submit" style=" background-color: rgb(1, 61, 14); color: white; margin-left: 40px; margin-bottom: 10px; border-radius: 15px;">Регистрация</button>
+            <span class="error">{{ errors }}</span>
+        </form>
+    </body>
+
+{% endblock %}
